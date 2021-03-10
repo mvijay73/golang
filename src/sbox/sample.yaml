@@ -1,0 +1,14 @@
+database:
+  host: localhost
+  port: 5432
+  password: xxxxxx
+
+email:
+  host: localhost
+  port: 23
+  name: aaaaaaa
+
+server:
+  host: localhost
+  port: 8888
+  log: mylog
