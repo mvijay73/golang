@@ -2,4 +2,5 @@ module log-gen
 
 go 1.16
 
-require github.com/brianvoe/gofakeit v3.18.0+incompatible // indirect
+require github.com/brianvoe/gofakeit v3.18.0+incompatible
+

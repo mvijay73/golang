@@ -4,7 +4,7 @@ package main
 func main() {
 	option := &Option{
 		Format: "Common",
-		Output: "sample.log",
+		Output: "/tmp/sample.log",
 		Type:   "log",
 		Number: 1000,
 	}
