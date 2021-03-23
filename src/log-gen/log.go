@@ -19,7 +19,7 @@ const (
 	// RFC5424Log : <priority>{version} {iso-timestamp} {hostname} {application} {pid} {message-id} {structured-data} {message}
 	RFC5424Log = "<%d>%d %s %s %s %d ID%d %s %s"
 	// CommonLogFormat : {host} {user-identifier} {auth-user-id} [{datetime}] "{method} {request} {protocol}" {response-code} {bytes}
-	CommonLogFormat = "%s - %s [%s] \"%s %s %s\" %d %d"
+	CommonLogFormat = "%s %s %s \"%s %s %s\" %d %d"
 	// JSONLogFormat : {"host": "{host}", "user-identifier": "{user-identifier}", "datetime": "{datetime}", "method": "{method}", "request": "{request}", "protocol": "{protocol}", "status", {status}, "bytes": {bytes}, "referer": "{referer}"}
 	JSONLogFormat = `{"host":"%s", "user-identifier":"%s", "datetime":"%s", "method": "%s", "request": "%s", "protocol":"%s", "status":%d, "bytes":%d, "referer": "%s"}`
 )
@@ -27,13 +27,13 @@ const (
 func NewCommonLogFormat(t time.Time) string {
 	return fmt.Sprintf(
 		CommonLogFormat,
+		t.Format(CommonLog),
 		gofakeit.IPv4Address(),
 		RandAuthUserID(),
-		t.Format(CommonLog),
 		gofakeit.HTTPMethod(),
 		RandResourceURI(),
 		RandHTTPVersion(),
-		gofakeit.StatusCode(),
+		"",
 		gofakeit.Number(0, 30000),
 	)
 }

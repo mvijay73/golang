@@ -6,7 +6,7 @@ func main() {
 		Format: "Common",
 		Output: "/tmp/sample.log",
 		Type:   "log",
-		Number: 1000,
+		Number: 10000,
 	}
 	Generate(option)
 }
